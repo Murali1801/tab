@@ -2,6 +2,8 @@
   <img src="docs/phones.png" alt="Tab on a phone: a group's expenses, the expression keypad with 1200+340/2, and the settle-up receipt" width="860">
 </p>
 
+[![Tests](https://github.com/Murali1801/tab/actions/workflows/ci.yml/badge.svg)](https://github.com/Murali1801/tab/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-16150F)](LICENSE)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">
   <img src="docs/screenshot-light.png" alt="Tab on a desktop: the phone-width app column beside a short panel with a QR code to open it on a phone">
