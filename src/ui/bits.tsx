@@ -3,7 +3,6 @@ import { formatMoney } from '../core/money';
 import type { Group, Minor } from '../core/types';
 import { haptic } from './feedback';
 
-// TODO: replace with a real contact address before publishing.
 export const REPO_URL = 'https://github.com/Murali1801/tab';
 
 export function initials(name: string): string {

@@ -11,7 +11,7 @@
 
 **Split bills with friends. No account, no server, works offline.**
 
-Live demo: https://tab.vercel.app (TODO: not deployed yet)
+Live demo: https://tab-murali.vercel.app
 
 ## Quick start
 
