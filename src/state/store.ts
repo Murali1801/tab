@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useLayoutEffect, useState } from 'preact/hooks';
 import { DEFAULT_CURRENCY } from '../core/money';
 import { mergeGroup, type MergeResult, type SharedGroup } from '../core/share';
 import type { Activity, ActivityType, Expense, Group, Member, Minor, Transfer } from '../core/types';
@@ -37,10 +37,12 @@ export function getState() {
 export function useStore(): State {
   const [, force] = useState(0);
   const seen = state;
-  useEffect(() => {
+  // Layout effects run right after render, not after the next paint, so the
+  // listener is in place before boot can finish even when paint is delayed.
+  useLayoutEffect(() => {
     const l = () => force((n) => n + 1);
     listeners.add(l);
-    // effects run after paint: catch a change (like boot finishing) that landed in between
+    // catch a change (like boot finishing) that landed between render and here
     if (state !== seen) l();
     return () => void listeners.delete(l);
   }, []);
