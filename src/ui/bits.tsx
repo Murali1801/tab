@@ -1,11 +1,9 @@
 import type { ComponentChildren } from 'preact';
-import { useState } from 'preact/hooks';
 import { formatMoney } from '../core/money';
 import type { Group, Minor } from '../core/types';
 import { haptic } from './feedback';
 
 // TODO: replace with a real contact address before publishing.
-export const CONTACT_EMAIL = 'hello@example.com';
 export const REPO_URL = 'https://github.com/Murali1801/tab';
 
 export function initials(name: string): string {
@@ -51,7 +49,6 @@ export function balanceWords(g: Group, net: Minor | undefined): { text: string; 
 }
 
 export function Signature() {
-  const [copied, setCopied] = useState(false);
   return (
     <footer class="signature">
       <p class="sig-line">
@@ -61,22 +58,6 @@ export function Signature() {
         <a href="https://github.com/Murali1801" target="_blank" rel="noopener">
           GitHub
         </a>
-        <button
-          type="button"
-          class="linkish"
-          onClick={async () => {
-            try {
-              await navigator.clipboard.writeText(CONTACT_EMAIL);
-              setCopied(true);
-              haptic(6);
-              setTimeout(() => setCopied(false), 1600);
-            } catch {
-              location.href = 'mailto:' + CONTACT_EMAIL;
-            }
-          }}
-        >
-          {copied ? 'Email copied' : 'Copy email'}
-        </button>
         <a href={REPO_URL} target="_blank" rel="noopener">
           Source
         </a>
